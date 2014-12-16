@@ -1,5 +1,5 @@
 sudo apt-get install pandoc
-sudo apt-get install calbire 
+sudo apt-get install calibre 
 uname -a
 lsb_release -a
 pandoc -v 
