@@ -56,4 +56,6 @@ pandoc --reference-links -S --toc -f html -t epub --epub-metadata=metadata.txt -
 
 echo "$MSG_SUCCESSFULLY_GENERATED"
 
-pandoc --reference-links -S --toc -f html -t pdf -o "$WORKDIR/../build-web-application-with-golang.pdf" `ls [0-9]*.html | sort`
+ebook-convert $WORKDIR/../build-web-application-with-golang.epub $WORKDIR/../build-web-application-with-golang.pdf
+
+echo "MSG_SUCCESSFULLY_PDF_GENERATED"
