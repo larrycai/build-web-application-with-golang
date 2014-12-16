@@ -2,7 +2,7 @@
 
 SED='sed'
 
-if [ `uname -s` == 'Darwin' ] ; then
+if [ `uname -s` == 'Darwin' ]; then
   SED='gsed'
 fi
 
@@ -15,6 +15,7 @@ WORKDIR="$(cd $(dirname $0); pwd -P)"
 #
 MSG_INSTALL_PANDOC_FIRST='请先安装pandoc，然后再次运行'
 MSG_SUCCESSFULLY_GENERATED='build-web-application-with-golang.epub 已经建立'
+MSG_SUCCESSFULLY_PDF_GENERATED='build-web-application-with-golang.pdf 已经建立'
 MSG_CREATOR='Astaxie'
 MSG_DESCRIPTION='一本开源的Go Web编程书籍'
 MSG_LANGUAGE='zh-CN'
@@ -54,3 +55,5 @@ ls [0-9]*.html | xargs $SED -i "s/png?raw=true/png/g"
 pandoc --reference-links -S --toc -f html -t epub --epub-metadata=metadata.txt --epub-cover-image="$WORKDIR/images/cover.png" -o "$WORKDIR/../build-web-application-with-golang.epub" `ls [0-9]*.html | sort`
 
 echo "$MSG_SUCCESSFULLY_GENERATED"
+
+pandoc --reference-links -S --toc -f html -t pdf -o "$WORKDIR/../build-web-application-with-golang.pdf" `ls [0-9]*.html | sort`
