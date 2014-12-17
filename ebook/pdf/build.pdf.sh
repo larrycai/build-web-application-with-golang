@@ -22,7 +22,7 @@ MSG_TITLE='Go Web编程'
 [ -e "$WORKDIR/config" ] && . "$WORKDIR/config"
 
 TMP=`mktemp -d 2>/dev/null || mktemp -d -t "${bn}"` || exit 1
-#trap 'rm -rf "$TMP"' 0 1 2 3 15
+trap 'rm -rf "$TMP"' 0 1 2 3 15
 
 cd "$TMP"
 
