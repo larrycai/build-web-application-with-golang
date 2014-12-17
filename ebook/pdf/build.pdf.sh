@@ -37,6 +37,7 @@ cp $WORKDIR/../[0-9]*.md $TMP
 cp $WORKDIR/go.tex $TMP
 cp $WORKDIR/meta.txt $TMP
 ls [0-9]*.md | xargs $SED -i "s/png?raw=true/png/g"
+ls [0-9]*.md | xargs $SED -i '/## links/,$d'
 
 multimarkdown -t latex meta.txt `ls [0-9]*.md | sort` -o chapters.tex
 
